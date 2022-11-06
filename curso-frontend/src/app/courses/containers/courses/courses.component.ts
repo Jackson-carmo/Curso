@@ -1,6 +1,6 @@
+import { Course } from './../../model/course';
 import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
 import { CoursesService } from '../../services/courses.service';
-import { Course } from '../../model/course';
 import { Component, OnInit } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
@@ -38,6 +38,10 @@ export class CoursesComponent implements OnInit {
   ngOnInit(): void {}
 
   onAdd() {
-    this.router.navigate([ 'new' ], {relativeTo: this.route})
+    this.router.navigate([ 'new' ], {relativeTo: this.route});
+  }
+
+  onEdit(course: Course) {
+    this.router.navigate([ 'edit', course._id ], {relativeTo: this.route});
   }
 }
